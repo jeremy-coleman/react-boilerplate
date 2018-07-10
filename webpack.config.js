@@ -10,12 +10,14 @@ module.exports = {
   mode: "development",
   output: {
     path: path.resolve(__dirname),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: "/"
   },
   resolve: {
     plugins: [new ReactJssHmrPlugin()]
   },
   devServer: {
+    historyApiFallback: true,
     overlay: true,
     proxy: {
       "/api": {
@@ -40,7 +42,8 @@ module.exports = {
       {
         host: "localhost",
         port: CLIENT_PORT + 1,
-        proxy: `http://localhost:${CLIENT_PORT}`
+        proxy: `http://localhost:${CLIENT_PORT}`,
+        open: false
       },
       {
         reload: process.env.SYNC === "true"
