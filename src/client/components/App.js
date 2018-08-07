@@ -40,13 +40,13 @@ class App extends Component {
     const { loading, text } = this.state
 
     return (
-      <div className={classes.container}>
+      <div className={ classes.container }>
         Hello world !
-        {loading ? (
+        { loading ? (
           <div> Fetching data ...</div>
         ) : (
-          <div>Text from API : {text}</div>
-        )}
+          <div>Text from API : { text }</div>
+        ) }
       </div>
     )
   }
